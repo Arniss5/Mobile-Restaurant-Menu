@@ -1,0 +1,87 @@
+@font-face {    
+    font-family: 'Smythe'; 
+    src: url('./fonts/Smythe-Regular.ttf');
+} 
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Smythe';
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 5% auto;
+    border: 1px solid red;
+}
+
+/* HERO SECTION */
+
+.hero {
+    color: #fff;
+    letter-spacing: 1px;
+    background-image: url('./images/heroImage.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    padding: 2.5em 2.9em ;
+    text-shadow: -1px -1px 0 #000;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+    line-height: 1.8em;
+}
+
+
+/* MENU ITEMS */
+
+.menu-items-container {
+    padding: 1.5em 2.9em;
+}
+
+.menu-item {
+    display: flex;
+}
+
+.menu-item-icon {
+    font-size: 80px;
+    border: 1px solid black;
+}
+
+.menu-item-description {
+    margin-left: 2em;
+    width: 70%;
+}
+
+h3 {
+    font-size: 1.7rem;
+}
+
+.ingredients {
+    color: #8B8B8B;
+    margin: 0.5em 0;
+}
+
+.price {
+    font-size: 1.2rem;
+}
+
+.add-btn {
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #dedede;
+    border-radius: 50%;
+    
+}
