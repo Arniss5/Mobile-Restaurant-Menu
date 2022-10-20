@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jimmy's Diner</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="hero">
+        <h1>Jimmy's Diner</h1>
+        <h2>The best burgers and pizzas in town.</h2>
+      </div>
+      <div class="menu-items" id="menu-items">
+        <!-- menu items rendered here -->
+        <div class="icon">🍕</div>
+        <div class="menu-item-container">
+          <h3>Pizza</h3>
+          <div class="ingredients">pepperoni, mushroom, mozarella</div>
+          <div class="price">$14</div>
+        </div>
+        <button class="add-btn">+</button>
+      </div>
+      <div class="icon">🍕</div>
+        <div class="menu-item-container">
+          <h3>Pasta</h3>
+          <div class="ingredients">pepperoni, mushroom, mozarella</div>
+          <div class="price">$14</div>
+        </div>
+        <button class="add-btn">+</button>
+      </div>
+
+      <div class="order-summary" id="order-summary">
+        <!-- order summary rendered here -->
+      </div>
+      <div class="payment-modal hidden" id="payment-modal">
+        <p>Enter card details</p>
+        <input
+          type="text"
+          name="customer-name"
+          id="customer-name"
+          placeholder="Enter your name"
+          required
+        />
+        <input
+          type="number"
+          name="card-number"
+          id="card-number"
+          minlength="8"
+          maxlength="19"
+          placeholder="Enter card number"
+          required
+        />
+        <input
+          type="number"
+          name="cvv"
+          name="cvv"
+          minlength="3"
+          maxlength="3"
+          placeholder="Enter CVV"
+          required
+        />
+        <button class="pay-btn"></button>
+      </div>
+      <div class="purchase-complete" id="purchase-complete">
+        <!-- render text -->
+        Thanks, James! Your order is complete!
+      </div>
+    </div>
+  </body>
+</html>
