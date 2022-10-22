@@ -5,6 +5,7 @@
 
 
 *{
+    font-weight: 400;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -12,13 +13,14 @@
 
 body {
     font-family: 'Smythe';
+    background-color: #f5f5f5;
 }
 
 .container {
+    background-color: #fff;
     width: 90%;
     max-width: 600px;
     margin: 5% auto;
-    border: 1px solid red;
 }
 
 /* HERO SECTION */
@@ -40,7 +42,7 @@ h1 {
 
 h2 {
     font-size: 1.4rem;
-    line-height: 1.8em;
+    line-height: 1.6em;
 }
 
 
@@ -52,11 +54,13 @@ h2 {
 
 .menu-item {
     display: flex;
+    align-items: center;
+    padding: 2.5em 0;
+    border-bottom: 1px solid #d2d2d2;
 }
 
 .menu-item-icon {
-    font-size: 80px;
-    border: 1px solid black;
+    font-size: 70px;
 }
 
 .menu-item-description {
@@ -64,8 +68,9 @@ h2 {
     width: 70%;
 }
 
-h3 {
-    font-size: 1.7rem;
+.item,
+.your-order {
+    font-size: 1.75rem;
 }
 
 .ingredients {
@@ -74,14 +79,164 @@ h3 {
 }
 
 .price {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
 }
 
 .add-btn {
+    font-size: 1rem;
+    color: #3c3c3c;
     background-color: transparent;
-    width: 50px;
+    min-width: 50px;
     height: 50px;
-    border: 2px solid #dedede;
+    border: 1.5px solid #dedede;
     border-radius: 50%;
-    
+    margin-left: 0.1em;
+    cursor: pointer;
 }
+
+.add-btn:hover,
+.add-btn:active {
+    background-color: #dedede;
+}
+
+
+/* ORDER SUMMARY */
+.order-summary {
+    
+    padding: 2rem 2.9rem;
+}
+
+.your-order {
+    
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.ordered-item-container,
+.total-price-container {
+    font-size: 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ordered-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2em 0;
+}
+
+.remove-btn {
+    color: #bbb;
+    background-color: transparent;
+    border: none;
+    margin-left: 0.7em;
+    cursor: pointer;
+}
+
+.remove-btn:hover, 
+.remove-btn:active {
+    color: #8B8B8B;
+    text-decoration: underline;
+}
+
+.ordered-item-price,
+.total-price {
+    font-size: 1.25rem;
+}
+
+.divider {
+    border-bottom: 2px solid #393333;
+    margin: 1.5em 0;
+}
+
+.complete-order-btn,
+.pay-btn {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: #16DB99;
+    width: 100%;
+    border: none;
+    border-radius: 0.2rem;
+    padding: 1.2em 0;
+    margin: 3em 0;
+    cursor: pointer;
+}
+
+.complete-order-btn:hover,
+.complete-order-btn:active,
+.pay-btn:hover,
+.pay-btn:active {
+    background-color: #11b67f;
+}
+
+
+/* PAYMENT MODAL */
+.payment-modal {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    background-color: white;
+    width: 90%;
+    max-width: 525px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.6em 1.2em;
+    filter: drop-shadow(5.18654px 5.18654px 255.437px rgba(0, 0, 0, 0.5));
+    border-radius: 0.2rem;
+}
+
+.payment-modal-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2em;
+}
+
+.payment-input {
+    font-family: inherit;
+    font-size: 1.25rem;
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 1.4em;
+    border: 1.3px solid #757575;
+    border-radius: 0.2rem;
+
+}
+
+.payment-input::-webkit-outer-spin-button,
+.payment-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.payment-input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  .pay-btn {
+    font-size: 1.25rem;
+    margin: 1em 0 0 0;
+  }
+
+/* PURCHASE COMPLETE */
+.purchase-complete {
+    font-size: 2rem;
+    text-align: center;
+    color: #065F46;
+    background-color: #ECFDF5;
+    padding: 1.5em 0;
+    margin: 0.5em 1.2em;
+}
+
+
+/* TO TOGGLE */
+.hidden {
+    display: none;
+  }

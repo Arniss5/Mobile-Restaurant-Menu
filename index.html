@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css" />
     <title>Jimmy's Diner</title>
   </head>
@@ -22,44 +23,90 @@
         <div class="menu-item">
           <div class="menu-item-icon">🍕</div>
           <div class="menu-item-description">
-            <h3>Pizza</h3>
-            <div class="ingredients">pepperoni, mushroom, mozarella</div>
+            <div>
+              <div class="item">Pizza</div>
+              <div class="ingredients">pepperoni, mushroom, mozarella</div>
+            </div>
+            
             <div class="price">$14</div>
           </div>
-          <button class="add-btn">+</button>
+          <button class="add-btn">
+            <i class="fa-solid fa-plus"></i>
+          </button>
         </div>
 
         <div class="menu-item">
           <div class="menu-item-icon">🍕</div>
           <div class="menu-item-description">
-            <h3>Pasta</h3>
+            <div class="item">Pasta</div>
             <div class="ingredients">pepperoni, mushroom, mozarella</div>
             <div class="price">$14</div>
           </div>
-          <button class="add-btn">+</button>
+          <button class="add-btn">
+            <i class="fa-solid fa-plus"></i>
+          </button>
         </div>
 
         <div class="menu-item">
           <div class="menu-item-icon">🍕</div>
           <div class="menu-item-description">
-            <h3>Pudding</h3>
+            <div class="item">Pudding</div>
             <div class="ingredients">pepperoni, mushroom, mozarella</div>
             <div class="price">$14</div>
           </div>
-          <button class="add-btn">+</button>
+          <button class="add-btn">
+            <i class="fa-solid fa-plus"></i>
+          </button>
         </div>
       </div>
 
-    </div>
-      <!-- HIDDEN: PAYMENT MODAL -->
-      <div class="order-summary" id="order-summary">
+
+      <!-- HIDDEN: ORDER SUMMARY -->
+      <div class="order-summary hidden" id="order-summary">
         <!-- order summary rendered here -->
+        <h3 class="your-order">Your order</h3>
+        
+        <div class="ordered-items">
+
+          <div class="ordered-item-container">
+            <div class="ordered-item">
+              <div >Pizza</div>
+              <button class="remove-btn">remove</button>
+            </div>
+            
+            <div class="price">$14</div>
+          </div>
+
+          <div class="ordered-item-container">
+            <div class="ordered-item">
+              <div class="item">Beer</div>
+              <button class="remove-btn">remove</button>
+            </div>
+            
+            <div class="price">$14</div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="total-price-container">
+            <div>Total price:</div>
+            <div class="price" id="total-price">$26</div>
+          </div>
+
+          <button class="complete-order-btn" id="complete-order-btn">Complete order</button>
+
+        </div>
+
       </div>
+
+
+      <!-- HIDDEN: PAYMENT MODAL -->
       <div class="payment-modal hidden" id="payment-modal">
-        <p>Enter card details</p>
+        <p class="payment-modal-title">Enter card details</p>
         <input
           type="text"
           name="customer-name"
+          class="payment-input"
           id="customer-name"
           placeholder="Enter your name"
           required
@@ -67,6 +114,7 @@
         <input
           type="number"
           name="card-number"
+          class="payment-input"
           id="card-number"
           minlength="8"
           maxlength="19"
@@ -76,20 +124,31 @@
         <input
           type="number"
           name="cvv"
-          name="cvv"
+          class="payment-input"
+          id="cvv"
           minlength="3"
           maxlength="3"
           placeholder="Enter CVV"
           required
         />
 
-        <!-- HIDDEN: PURCHASE COMPLETE -->
-        <button class="pay-btn"></button>
+        
+        <button class="pay-btn">Pay</button>
       </div>
+
+      <!-- HIDDEN: PURCHASE COMPLETE -->
       <div class="purchase-complete" id="purchase-complete">
         <!-- render text -->
-        Thanks, James! Your order is complete!
+        Thanks, James! Your order is on its way!
       </div>
+
+    </div>
+      
+    
+
+      
+
+      
       <script src="./app.js" type="module"></script>
     </div>
   </body>
