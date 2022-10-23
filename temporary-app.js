@@ -1,17 +1,9 @@
 import { menuArray } from "./data.js";
 
 let summaryMenuArray = []
-let customerName = ''
 
 render()
 
-const nameInput = document.getElementById("customer-name")
-const cardInput = document.getElementById("card-number")
-const cvvInput = document.getElementById("cvv")
-
-
-
-//EVENTS ON BUTTONS
 document.addEventListener('click', function(e) {
     
     if (e.target.dataset.add){
@@ -20,18 +12,6 @@ document.addEventListener('click', function(e) {
     
     if(e.target.dataset.remove) {
         handleRemoveClick(e.target.dataset.remove)
-    }
-
-    if(e.target.id === "complete-order-btn") {
-        handleCompleteClick()
-    }
-
-    if(e.target.id === "cancel-btn") {
-        handleCancelClick()
-    }
-
-    if(e.target.id === "pay-btn") {
-        handlePayClick()
     }
 })
 
@@ -43,7 +23,6 @@ function handleAddClick(elementId) {
     })[0]
 
     summaryMenuArray.push(targetElement)
-    document.getElementById("purchase-complete").classList.add("hidden")
     render()
 }
 
@@ -52,32 +31,7 @@ function handleRemoveClick(elementId) {
     render()
 }
 
-function handleCompleteClick() {
-    document.getElementById("payment-modal").classList.remove("hidden")
-}
 
-function handleCancelClick() {
-    document.getElementById("payment-modal").classList.add("hidden")
-}
-
-function handlePayClick() {
-    if(nameInput.value && cardInput.value && cvvInput.value) {
-        customerName = document.getElementById("customer-name").value
-        document.getElementById("payment-modal").classList.add("hidden")
-        summaryMenuArray = []
-
-        document.getElementById("purchase-complete").classList.remove("hidden")
-        document.getElementById("purchase-complete").textContent = getPurchaseCompleteHtml()
-
-        getSummaryHTML()
-        render()
-        
-        nameInput.value = ''
-        cardInput.value = ''
-        cvvInput.value = ''
-    }
-
-}
 
 
 
@@ -135,11 +89,6 @@ function getTotalPrice() {
         totalPrice += summaryItem.price
     })
     return '$' + totalPrice
-}
-
-
-function getPurchaseCompleteHtml() {
-    return `Thanks, ${customerName}! Your order is on its way!`
 }
 
 
