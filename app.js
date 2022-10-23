@@ -35,9 +35,6 @@ document.addEventListener('click', function(e) {
         handlePayClick()
     }
 
-    // if(e.target.dataset.rate) {
-    //     handleRateClick(e.target.dataset.rate)
-    // }
 })
 
 
@@ -66,6 +63,7 @@ function handleCancelClick() {
 }
 
 function handlePayClick()   {
+    //check if all fields are filled in
     if(nameInput.value && cardInput.value && cvvInput.value) {
         customerName = document.getElementById("customer-name").value
         paymentModal.classList.add("hidden")
@@ -104,8 +102,6 @@ function handlePayClick()   {
 
 
     
-
-
 
 
 //'GET HTML' FUNCTIONS
