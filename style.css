@@ -20,6 +20,7 @@ body {
     background-color: #fff;
     width: 90%;
     max-width: 600px;
+    padding-bottom: 1em;
     margin: 5% auto;
 }
 
@@ -40,7 +41,7 @@ h1 {
     font-size: 2.5rem;
 }
 
-h2 {
+.subtitle {
     font-size: 1.4rem;
     line-height: 1.6em;
 }
@@ -50,23 +51,27 @@ h2 {
 
 .menu-items-container {
     padding: 1.5em 2.9em;
+    
 }
 
 .menu-item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 2.5em 0;
     border-bottom: 1px solid #d2d2d2;
 }
 
-.menu-item-icon {
-    font-size: 70px;
+.item-container {
+    display: flex;
+    flex-direction: row;
 }
 
-.menu-item-description {
-    margin-left: 2em;
-    width: 70%;
+.menu-item-icon {
+    font-size: 70px;
+    margin-right: 2rem;
 }
+
 
 .item,
 .your-order {
