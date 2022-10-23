@@ -8,7 +8,8 @@ render()
 const nameInput = document.getElementById("customer-name")
 const cardInput = document.getElementById("card-number")
 const cvvInput = document.getElementById("cvv")
-
+const paymentModal = document.getElementById("payment-modal")
+const purchaseComplete = document.getElementById("purchase-complete")
 
 
 //EVENTS ON BUTTONS
@@ -33,6 +34,10 @@ document.addEventListener('click', function(e) {
     if(e.target.id === "pay-btn") {
         handlePayClick()
     }
+
+    // if(e.target.dataset.rate) {
+    //     handleRateClick(e.target.dataset.rate)
+    // }
 })
 
 
@@ -43,7 +48,7 @@ function handleAddClick(elementId) {
     })[0]
 
     summaryMenuArray.push(targetElement)
-    document.getElementById("purchase-complete").classList.add("hidden")
+    purchaseComplete.classList.add("hidden")
     render()
 }
 
@@ -53,31 +58,53 @@ function handleRemoveClick(elementId) {
 }
 
 function handleCompleteClick() {
-    document.getElementById("payment-modal").classList.remove("hidden")
+    paymentModal.classList.remove("hidden")
 }
 
 function handleCancelClick() {
-    document.getElementById("payment-modal").classList.add("hidden")
+    paymentModal.classList.add("hidden")
 }
 
-function handlePayClick() {
+function handlePayClick()   {
     if(nameInput.value && cardInput.value && cvvInput.value) {
         customerName = document.getElementById("customer-name").value
-        document.getElementById("payment-modal").classList.add("hidden")
+        paymentModal.classList.add("hidden")
         summaryMenuArray = []
 
-        document.getElementById("purchase-complete").classList.remove("hidden")
-        document.getElementById("purchase-complete").textContent = getPurchaseCompleteHtml()
+        purchaseComplete.classList.remove("hidden")
+        purchaseComplete.innerHTML = getPurchaseCompleteHtml()
 
         getSummaryHTML()
         render()
-        
         nameInput.value = ''
         cardInput.value = ''
         cvvInput.value = ''
+
+        //RATING
+        const stars = document.querySelectorAll('.fa-star')
+            
+            stars.forEach((star, i) => {
+                star.onclick = function() {
+                    let currentStar = i + 1
+                
+                    stars.forEach((star, j) => {
+                        if(currentStar >= j+1) {
+                            star.classList.add('gold')
+                        } else {
+                            star.classList.remove('gold')
+                        }
+                    })
+
+                    document.getElementById('rating-thanks').textContent = 'We appreciate your feedback!'
+                }
+        })
     }
 
 }
+
+
+    
+
 
 
 
@@ -131,15 +158,48 @@ function getSummaryHTML() {
 
 function getTotalPrice() {
     let totalPrice = 0
+    let drinks = 0
+    let food = 0
+    let meal = 0
+
     summaryMenuArray.forEach(summaryItem => {
         totalPrice += summaryItem.price
+
+        if (summaryItem.name === 'Beer') {
+            drinks++
+        } else {
+            food++
+        }
     })
-    return '$' + totalPrice
+
+    if (food && drinks) {
+        if (food > drinks) {
+            meal = drinks
+        } else {
+            meal = food
+        }
+    }
+   
+    if (meal) {
+        return `${meal} x Meal deal $3 discount: $${totalPrice - 3 * meal}`
+    } else {
+        return '$' + totalPrice
+    }
+    
 }
 
 
 function getPurchaseCompleteHtml() {
-    return `Thanks, ${customerName}! Your order is on its way!`
+    return `
+    <div>Thanks, ${customerName}! Your order is on its way!</div>
+    <div class="rate"> Rate your experience:</div>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <div id="rating-thanks"></div>
+    `
 }
 
 
@@ -152,8 +212,8 @@ function render() {
 
     //display order summary only if summaryMenuArray isn't empty
     if (summaryMenuArray.length > 0) {
-        document.querySelector("#order-summary").classList.remove('hidden')
+        document.getElementById("order-summary").classList.remove('hidden')
     } else {
-        document.querySelector("#order-summary").classList.add('hidden')
+        document.getElementById("order-summary").classList.add('hidden')
     }
 }

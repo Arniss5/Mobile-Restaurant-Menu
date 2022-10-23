@@ -253,6 +253,18 @@ h1 {
     margin: 0.5em 1.2em;
 }
 
+.rate {
+    margin: 1em 0 0.5em 0;
+}
+
+.fa-star {
+    cursor: pointer;
+}
+
+.fa-star.gold{
+    color: gold;
+}
+
 
 /* TO TOGGLE */
 .hidden {
